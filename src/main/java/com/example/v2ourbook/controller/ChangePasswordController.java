@@ -62,7 +62,7 @@ public class ChangePasswordController {
 
             User user = userRepository.findUserByPasswordResetToken(token).orElseThrow(()->new ExceptionBlueprint("usernotfound","no",1));
 
-            var tokenDate = user.getPasswordResetTokenDate();
+            Date tokenDate = user.getPasswordResetTokenDate();
 
             Calendar c = Calendar.getInstance();
             c.setTime(tokenDate);

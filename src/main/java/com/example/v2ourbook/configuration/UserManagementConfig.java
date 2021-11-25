@@ -41,7 +41,7 @@ public class UserManagementConfig {
         String encodedPassword = (String) bCryptPasswordEncoder.encode(password);
 
 
-        var user = new User();
+        User user = new User();
         user.setUsername(username);
         user.setPassword(encodedPassword);
         user.setFirstname(username);
@@ -50,7 +50,7 @@ public class UserManagementConfig {
         userRepository.save(user);
 
         for (String auth : authorities) {
-            var authority = new Authority();
+            Authority authority = new Authority();
             authority.setName(auth);
             authority.setUser(user);
             authorityRepository.save(authority);
